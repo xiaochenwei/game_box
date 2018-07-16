@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+<view class='swiper'>
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for-items="{{banner_list[0].banner}}">
@@ -8,6 +9,7 @@
     </swiper-item>
   </block>
 </swiper>
+</view>
  <view>
   <view class='menueview' >
    <block wx:for-items="{{banner_list[1].banner}}">
@@ -15,11 +17,10 @@
    </block>
   </view>
  </view>
- <!-- <view class='separator'></view> -->
+  <view class='banner-height'></view> 
 <view class='floortitle'>
   <image class="notice-image" src="../../images/ic_start.png" />
   <view class='floortitle-icon'>新游上线</view>
-  <!-- <view class='floortitlemoretext'>更多> </view> -->
 </view>
 <view class='hotgoodcontainer'>
   <view class='gooditem' wx:for="{{hotgoods}}" wx:for-index="idx" wx:for-item="good">
@@ -29,18 +30,58 @@
     <view class='new-item'>{{good.name}}</view>
   </view>
 </view>
-<scroll-view scroll-y="true">
-		<view class='game-list'>
-      <view class='game' wx:for="{{gamelist}}" wx:for-index="idx" wx:for-item="gameitem">
-        <view class='imgview'>
-          <image class='productimg' src='{{gameitem.pic_url}}'/>
-        </view>
-        <view class='game-title'>熊猫日记</view>
-        <view class='game-num'><view class='nums'>237</view>人在玩</view>
-        <view class='game-desc'>世界那么大，谁爱去谁去看吧，我只想留在你身边</view>
-    <!-- <view class='new-item'>{{gameitem.name}}</view> -->
+<scroll-view scroll-y="true" scroll-x="false" class="cart-list" wx:if="{{cartListShow}}">
+  <view wx:for="{{postList}}" class="sub-cart-list" wx:for-item="item" wx:for-index="index">
+    <view class="sub-cart-img">
+      <view class="sub-cart-img-inner">
+        <image src="{{item.imgSrc}}"></image>
       </view>
     </view>
-			<view class="loading">努力加载中…</view>
-		</scroll-view>
+    <view class="sub-cart-middle">
+      <view class="sub-cart-title">
+        <view class='game-title'>{{item.foodName}}</view>
+        <view class='game-num'><text class="num">{{item.price}}</text>万人在玩</view>
+      </view>
+      <view class="sub-cart-num">
+        <view class='game-desc'>世界那么大，谁爱看谁去看吧，我只想留在你身边</view>
+      </view>
+    </view>
+     <view class="index-button1">
+       <image class="index-btnimg" src="../../images/index_startbtn.png" mode="cover"/>
+       <text class='index-btntext'>开始</text> 
+       <button class="index-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始</button>
+       </view>
+  </view>
+</scroll-view>
+<view class='bottom-banner'>
+  <image class='bottom-img' src="../../images/bottom.jpg"></image>
 </view>
+<view class='follow' bindtap="showModal" data-statu="open">
+  <image class='follow-img' src="../../images/follow.png" mode="cover"/>
+</view>
+<view class='come-top' bindtap='goToTop'>回到顶部</view>
+</view>
+<!-- <view class='modal'>
+  <image class='qrcode' src="../../images/qrcode.png"></image>
+  <image class='download' src="../../images/download.png"></image>
+</view> -->
+
+<!--button-->
+ <!-- <view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  -->
+ 
+<!--mask-->
+<view class="drawer_screen" bindtap="showModal" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+ <!-- <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  -->
+  <view  class="drawer_box" wx:if="{{showModalStatus}}"> 
+ 
+  <!--drawer content-->
+  <view class="drawer_title">
+    <image class='qrcode' src="../../images/qrcode.png"></image>
+    <image class='download' src="../../images/download.png"></image>
+    <image class='close' bindtap="showModal" data-statu='close' wx:if="{{showModalStatus}}" src="../../images/close.png"></image>
+  </view>
+  <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view> -->
+</view>
+

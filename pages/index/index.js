@@ -1,8 +1,12 @@
 //index.js
 //获取应用实例
+var postData = require("index-config.js");
 var app = getApp()
 Page({
   data: {
+    showModalStatus: false,
+    cartListShow: true,
+    postList: postData.postList,
     motto: 'MiHome_Store',
     userInfo: {},
     indicatorDots: true,
@@ -50,6 +54,35 @@ Page({
     }]
   },
   //事件处理函数
+  showModal: function (e) {
+    var currentStatu = e.currentTarget.dataset.statu;
+    this.util(currentStatu);
+  },
+  util: function (currentStatu) {
+    if (currentStatu == "open") {
+      console.log(1111)
+      this.setData(
+        {
+          showModalStatus: true
+        }
+      );
+    };
+  if(currentStatu == "close") {
+    console.log(1111)
+    this.setData(
+      {
+        showModalStatus: false
+      }
+    );
+  }
+  },
+  goToTop: function () {
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    })
+  },
+
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
