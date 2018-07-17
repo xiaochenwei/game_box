@@ -1,9 +1,12 @@
 //index.js
 //获取应用实例
 var postData = require("index-config.js");
-var app = getApp()
+var app = getApp();
+var IMG_URL = "../../images/qrcode.png";
 Page({
   data: {
+    // height: "",
+    image_url: IMG_URL,
     showModalStatus: false,
     cartListShow: true,
     postList: postData.postList,
@@ -54,6 +57,14 @@ Page({
     }]
   },
   //事件处理函数
+  viewHeight: function (e) {
+    var winW = wx.getSystemInfoSync().windowWidth;
+    var viewH = (winW <= 320 ? 350 : (winW <= 360 ? 305 : (winW<=375 ? 295 : 265))) + "rpx";
+    this.setData({
+      height: viewH
+    })
+  },
+
   showModal: function (e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu);
@@ -75,6 +86,33 @@ Page({
       }
     );
   }
+  },
+  download: function () {
+    wx.saveImageToPhotosAlbum({
+      success(res) {
+      }
+    })
+  },
+  saveImgToPhotosAlbumTap: function () {
+    wx.downloadFile({
+      url: IMG_URL,
+      success: function (res) {
+        console.log(res)
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (res) {
+            console.log(res)
+          },
+          fail: function (res) {
+            console.log(res)
+            console.log('fail')
+          }
+        })
+      },
+      fail: function () {
+        console.log('fail')
+      }
+    })
   },
   goToTop: function () {
     wx.pageScrollTo({
