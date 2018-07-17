@@ -1,25 +1,5 @@
 /**index.wxss**/
 
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-/* .usermotto {
-  margin-top: 200px;
-} */
-
 .swiper {
   position: fixed !important;
   height: 350rpx;
@@ -41,23 +21,11 @@
   /* padding:5px 0 */
 }
 
-.menue-image {
-  flex: 1;
-  /* height:50px; */
-  height: auto;
-}
-
-.separator {
-  height: 40rpx;
-  width: 20rem;
-  background-color: #f3f3f3;
-}
-
 .banner-height {
   height: 265rpx;
 }
 
-.floortitle {
+.new-online {
   display: flex;
   /* flex: none; *//* flex-direction: row; */
   width: 100%;
@@ -69,19 +37,19 @@
   border-bottom: 1rpx solid #f93;
 }
 
-.floortitle-icon {
+.new-text {
   color: #f93;
   font-size: 28rpx;
 }
 
-.notice-image {
+.new-icon {
   height: 35rpx;
   min-width: 35rpx;
   max-width: 35rpx;
   padding: 10rpx 10rpx;
 }
 
-.hotgoodcontainer {
+.new-list {
   display: flex;
   justify-content: center;
   -webkit-justify-content: center;
@@ -97,7 +65,7 @@
   background-color: #ffebe5;
 }
 
-.gooditem {
+.new-item {
   width: 25%;
   /* display: -webkit-box; *//* display: -webkit-flex; *//* display: -ms-flexbox; */
   display: flex;
@@ -122,57 +90,17 @@
   /* height: 200rpx; */
 }
 
-.new-item {
+.new-name {
   font-size: 20rpx;
   text-align: center;
   /* height: 50px; */
 }
 
-.flex {
-  display: flex;
-  display: -webkit-flex;
-}
-
-.flex-1 {
-  flex: 1;
-  -webkit-flex: 1;
-}
-
-.flex-2 {
-  flex: 2;
-  -webkit-flex: 2;
-}
-
-.tc {
-  text-align: center;
-}
-
-.fs32 {
-  font-size: 32rpx;
-  color: #1f2638;
-}
-
-.fw {
-  font-weight: bold;
-}
-
-.color_red {
-  color: #de3120;
-}
-
-.ml10 {
-  margin-left: 10rpx;
-}
-
-.tr {
-  text-align: right;
-}
-
-.cart-list {
+.game-list {
   height: 970rpx;
 }
 
-.sub-cart-list {
+.sub-game-list {
   height: 190rpx;
   /* width: 100%; */
   position: relative;
@@ -181,17 +109,17 @@
   margin-left: -20rpx;
 }
 
-.sub-cart-img {
+.sub-game-img {
   float: left;
   /* margin-left: 20rpx; */
 }
 
-.sub-cart-middle {
+.sub-game-middle {
   float: left;
   font-size: 28rpx;
 }
 
-.sub-cart-title {
+.sub-game-title {
   display: flex;
   width: 340rpx;
   height: 40rpx;
@@ -200,13 +128,13 @@
   white-space: nowrap;
 }
 
-.sub-cart-title span {
+.sub-game-title span {
   font-size: 20rpx;
   font-weight: bold;
   margin-right: 26rpx;
 }
 
-.sub-cart-num {
+.sub-game-num {
   /* margin-left: 15rpx; */
   display: flex;
   flex-direction: row;
@@ -216,127 +144,18 @@
   font-size: 25rpx;
 }
 
-.cart-del {
-  position: absolute;
-  top: 50%;
-  right: 20rpx;
-  margin-top: -31rpx;
-  height: 50rpx;
-  width: 100rpx;
-  text-align: center;
-  font-size: 28rpx;
-  line-height: -10rpx;
-  color: white;
-  background-color: #f93;
-}
-
-.sub-cart-img image {
+.sub-game-img image {
   width: 150rpx;
   height: 150rpx;
   vertical-align: middle;
 }
 
-.sub-cart-img-inner {
+.sub-game-img-inner {
   height: 190rpx;
   width: 226rpx;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-}
-
-.cart-del image {
-  width: 62rpx;
-  height: 62rpx;
-}
-
-.plus, .add {
-  display: inline-block;
-  width: 48rpx;
-  height: 48rpx;
-}
-
-.plus img, .add image {
-  width: 44rpx;
-  height: 44rpx;
-  vertical-align: top;
-}
-
-.f20 {
-  font-size: 26rpx;
-  color: #000;
-}
-
-.cart_total {
-  background: rgba(53, 59, 76, 0.8);
-  width: 100%;
-  height: 170rpx;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-}
-
-.total {
-  color: #fff;
-  font-size: 30rpx;
-  font-weight: bold;
-}
-
-.ml10 {
-  margin-left: 10rpx;
-}
-
-.settle {
-  width: 180rpx;
-  height: 60rpx;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 40rpx;
-  -webkit-border-radius: 40rpx;
-  float: right;
-  background-color: #de3120;
-  font-size: 30rpx;
-  line-height: 60rpx;
-}
-
-.cart_total_inner {
-  width: 90%;
-  margin: 50rpx auto 0;
-}
-
-.cart-num {
-  display: inline-block;
-  width: 44rpx;
-  height: 44rpx;
-  color: #000;
-  text-align: center;
-  line-height: 44rpx;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  font-size: 24rpx;
-  background-color: #fff;
-  position: absolute;
-  top: -10rpx;
-  right: -10rpx;
-}
-
-.psr {
-  position: relative;
-}
-
-.ma_cart_none {
-  font-size: 30rpx;
-  color: #919293;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100rpx;
-}
-
-.ma_cart_none image {
-  width: 306rpx;
-  height: 306rpx;
-  margin-bottom: 30rpx;
 }
 
 .game-title {
@@ -370,11 +189,6 @@
 }
 
 .index-btn {
-  /* opacity: 0;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%; */
   position: absolute;
   left: 0;
   width: 80rpx;
@@ -385,8 +199,8 @@
   align-items: center;
   padding: 0;
   line-height: -5rpx;
-  color:white;
-  background-color:#ff9933;
+  color: white;
+  background-color: #f93;
 }
 
 .index-button1 {
@@ -402,28 +216,6 @@
   float: right;
   right: 50rpx;
   /* top: 14rpx; */
-}
-
-.index-btnimg {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
-  width: 100%;
-  height: 100%;
-}
-
-.index-btntext {
-  color: aliceblue;
-  font-size: 25rpx;
-  font-weight: 500;
-  text-align: center;
-  /* line-height: 100rpx; */
-  position: absolute;
-  top: 3rpx;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .bottom-img {
@@ -458,10 +250,10 @@
 }
 
 .save {
-  width:500rpx;
-  height:110rpx;
-  margin-top:40rpx;
-  border: 8rpx solid #ffff66;
+  width: 500rpx;
+  height: 110rpx;
+  margin-top: 40rpx;
+  border: 8rpx solid #ff6;
 }
 
 .close {
@@ -486,7 +278,7 @@
 
 /*mask*/
 
-.drawer_screen {
+.modal_screen {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -495,14 +287,13 @@
   z-index: 1000;
   background: #000;
   opacity: 0.5;
-  overflow: hidden;
 }
 
 /*content*/
 
-.drawer_box {
+.modal_box {
   width: 650rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: fixed;
   top: 50%;
   left: 0;
@@ -512,100 +303,16 @@
   border-radius: 3px;
 }
 
-.drawer_title {
+.modal_title {
   padding: 15px;
   font: 20px "microsoft yahei";
   text-align: center;
-}
-
-.drawer_content {
-  height: 210px;
-  overflow-y: scroll; /*超出父盒子高度可滚动*/
+  overflow: visible;
 }
 
 .qrcode {
   width: 500rpx;
   height: 500rpx;
-}
-
-.btn_ok {
-  padding: 10px;
-  font: 20px "microsoft yahei";
-  text-align: center;
-  border-top: 1px solid #e8e8ea;
-  color: #3cc51f;
-}
-
-.top {
-  padding-top: 8px;
-}
-
-.bottom {
-  padding-bottom: 8px;
-}
-
-.title {
-  height: 30px;
-  line-height: 30px;
-  width: 160rpx;
-  text-align: center;
-  display: inline-block;
-  font: 300 28rpx/30px "microsoft yahei";
-}
-
-.input_base {
-  border: 2rpx solid #ccc;
-  padding-left: 10rpx;
-  margin-right: 50rpx;
-}
-
-.input_h30 {
-  height: 30px;
-  line-height: 30px;
-}
-
-.input_h60 {
-  height: 60px;
-}
-
-.input_view {
-  font: 12px "microsoft yahei";
-  background: #fff;
-  color: #000;
-  line-height: 30px;
-}
-
-input {
-  font: 12px "microsoft yahei";
-  background: #fff;
-  color: #000;
-}
-
-radio {
-  margin-right: 20px;
-}
-
-.grid {
-  display: -webkit-box;
-  display: box;
-}
-
-.col-0 {
-  -webkit-box-flex: 0;
-  box-flex: 0;
-}
-
-.col-1 {
-  -webkit-box-flex: 1;
-  box-flex: 1;
-}
-
-.fl {
-  float: left;
-}
-
-.fr {
-  float: right;
 }
 
 .none {
