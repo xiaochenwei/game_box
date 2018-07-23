@@ -2,11 +2,9 @@
 //获取应用实例
 var postData = require("index-config.js");
 var app = getApp();
-var IMG_URL = "../../images/qrcode.png";
 Page({
   data: {
     // height: "",
-    image_url: IMG_URL,
     showModalStatus: false,
     gameListShow: true,
     postList: postData.postList,
@@ -18,14 +16,6 @@ Page({
     newList: postData.newList
   },
   //事件处理函数
-  viewHeight: function(e) {
-    var winW = wx.getSystemInfoSync().windowWidth;
-    var viewH = (winW <= 320 ? 350 : (winW <= 360 ? 305 : (winW <= 375 ? 295 : 265))) + "rpx";
-    this.setData({
-      height: viewH
-    })
-  },
-
   showModal: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu);
@@ -42,31 +32,36 @@ Page({
       });
     }
   },
-  download: function() {
+  download: function (e) {
+    var image = "images/qrcode.png";
     wx.saveImageToPhotosAlbum({
-      success(res) {}
-    })
-  },
-  saveImgToPhotosAlbumTap: function() {
-    wx.downloadFile({
-      url: IMG_URL,
-      success: function(res) {
-        console.log(res)
-        wx.saveImageToPhotosAlbum({
-          filePath: res.tempFilePath,
-          success: function(res) {
-            console.log(res)
-          },
-          fail: function(res) {
-            console.log(res)
-            console.log('fail')
-          }
-        })
+      filePath: image,
+      success: function (e) {
+        wx.showModal({
+          title: "保存成功",
+          // content: '',
+          showCancel: !1,
+          success: function (e) { }
+        });
       },
-      fail: function() {
-        console.log('fail')
+      fail: function (e) {
+        wx.getSetting({
+          success: function (e) {
+            t.authSetting["scope.writePhotosAlbum"] ? wx.showModal({
+              title: "保存失败",
+              showCancel: !1,
+              success: function (e) { }
+            }) : wx.showModal({
+              title: "保存失败",
+              content: "是否打开保存相册权限？",
+              success: function (e) {
+                t.confirm && wx.openSetting({});
+              }
+            });
+          }
+        });
       }
-    })
+    });
   },
   goToTop: function() {
     wx.pageScrollTo({

@@ -1,15 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='swiper'>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for-items="{{bannerList}}">
         <swiper-item>
           <image src="{{item.pic_url}}" class="slide-image" bindload='viewHeight' ></image>
         </swiper-item>
       </block>
     </swiper>
-  </view>
-  <view class='banner-height' style="height:{{height}}"></view>
+    <view class='banner-height' style="height:345rpx"></view>
   <view class='new-online'>
     <image class="new-icon" src="../../images/ic_start.png" ></image>
     <view class='new-text'>新游上线</view>
@@ -36,7 +34,7 @@
             <text class="num">{{item.num}}</text>万人在玩</view>
         </view>
         <view class="sub-game-num">
-          <view class='game-desc'>世界那么大，谁爱看谁去看吧，我只想留在你身边</view>
+          <view class='game-desc'>{{item.desc}}</view>
         </view>
       </view>
       <navigator target="miniProgram" open-type="navigate" app-id="{{item.id}}" path="pages/index/index" extra-data="" version="trial">
@@ -49,9 +47,9 @@
   <view class='bottom-banner'>
     <image class='bottom-img' src="../../images/bottom.jpg"></image>
   </view>
-  <!-- <view class='follow' bindtap="showModal" data-statu="open">
+   <!-- <view class='follow' bindtap="showModal" data-statu="open">
     <image class='follow-img' src="../../images/follow.png" mode="cover" ></image>
-  </view> -->
+  </view>  -->
   <view class='come-top' bindtap='goToTop'>回到顶部</view>
 </view>
 <!--mask-->
@@ -60,9 +58,9 @@
 <view class="modal_box" wx:if="{{showModalStatus}}">
   <view class="modal_title">
     <image class='qrcode' src="../../images/qrcode.png"></image>
-    <button class='save'>
-      <image class='download' bindtap="download" src="../../images/download.png"></image>
+    <button class='save' bindtap="download">
+      <image class='download'  src="../../images/download.png"></image>
     </button>
-    <image class='close' bindtap="showModal" data-statu='close' wx:if="{{showModalStatus}}" src="../../images/close.png"></image>
+     <image class='close' bindtap="showModal" data-statu='close' wx:if="{{showModalStatus}}" src="../../images/close.png"></image> 
   </view>
 </view>
